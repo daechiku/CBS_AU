@@ -1,0 +1,217 @@
+<!-- Date: 2016-01-21 Submenu copy dari aside.nav.uikit.html -->
+<!-- submenu untuk modul laporan -->
+<nav ui-nav>
+  <ul class="nav">
+    <li class="nav-header h4 m-v-sm">
+      Laporan
+    </li>
+<!-- Submenu Transaksi -->    
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i> 
+        </span>	
+        <i class="icon glyphicon glyphicon-list text-lt"></i>
+        <span class="font-normal">Transaksi</span>
+      </a>
+      <ul class="nav nav-sub bg">
+      	<li ui-sref-active="active">
+          <a ui-sref="laporan.trx_kas_bank">Mutasi Kas Bank</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_neraca_percobaan">Neraca Percobaan</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_laporantrx">Laporan Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_rekaptrx">Rekapitulasi Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_fas_nasabah">Fasilitas Nasabah</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_pembukaanproduk">Pembukaan Produk</a>
+        </li>
+				<li ui-sref-active="active">
+         	<a ui-sref="ui.component.icon">Icon</a>
+        </li>
+      </ul>
+    </li>
+    
+<!-- Submenu Tabungan -->    
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-briefcase text-lt"></i>
+        <span class="font-normal">Tabungan</span>
+      </a>
+      <ul class="nav nav-sub bg">
+      	<li ui-sref-active="active">
+          <a ui-sref="laporan.tab_bermutasi">Tabungan Bermutasi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_sejarahtrx">Sejarah Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_listsaldo">List Saldo</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_saldoharian">Saldo Harian</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_saldoperproduk">Saldo Per Produk</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_pasif">Tabungan Pasif</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_blokir">Tabungan Blokir</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_premiasuransi">Premi Asuransi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.tab_rekaptabungan">Rekapitulasi Tabungan</a>
+        </li>
+      </ul>
+    </li>
+    
+<!-- Sub Menu Laporan-Deposito -->
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        
+        <i class="icon glyphicon ti-ruler-pencil text-lt"></i>
+        <span class="font-normal">Deposito</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.dep_listdeposito">List Deposito</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.dep_listbaghas">List BagiHasil</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="laporan.dep_buka">Deposito Buka</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="laporan.dep_jtempo">Deposito Jt.Tempo</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="laporan.dep_rekap">Rekap Deposito</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.dep_maturity">Maturity Profile</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.dep_terbesar">Deposito Terbesar</a>
+        </li>
+      </ul>
+    </li>
+    
+<!---- Sub Menu Laporan-Pembiayaan -->
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-edit text-lt"></i>
+        <span class="font-normal">Pembiayaan</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_info_debitur">Informasi Debitur</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_kartu_angsuran">Kartu Angsuran</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_list_saldo">List Saldo PYD</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_tunggakan">List Tunggakan</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_pencairan">Pencairan Pembiayaan</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.pyd_lunas">List PYD Lunas</a>
+        </li>
+      </ul>
+		</li>
+		    
+<!---- Sub Menu Laporan-General Ledger -->
+    <li ng-class="{active:$state.includes('gl')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-edit text-lt"></i>
+        <span class="font-normal">General Ledger</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.gl_mutasigl">Mutasi Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.gl_neraca_rl">Neraca & Laba Rugi</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.gl_rl_berjalan">Laba Rugi berjalan</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.gl_komparasi">Komparasi List Saldo</a>
+        </li>
+        
+        <li>
+					<a href>
+        		<span class="pull-right text-muted">
+            	<i class="fa fa-caret-down"></i>
+            </span>
+            <span class="font-normal">Bagi Hasil</span>
+          </a>
+          <ul class="nav nav-sub bg">
+        		<li ui-sref-active="active">
+        			<a ui-sref="laporan.gl_estimasi_baghas">Estimasi Bagi Hasil</a>
+        		</li>
+        		<li ui-sref-active="active">
+        			<a ui-sref="laporan.gl_list_dpk_pyd">List DPK dan PYD</a>
+        		</li>
+        		<li ui-sref-active="active">
+        			<a ui-sref="laporan.gl_pengurang_baghas">Pengurang BagHas</a>
+        		</li>
+        		<li ui-sref-active="active">
+        			<a ui-sref="laporan.gl_real_baghas">Realisasi Bagi Hasil</a>
+        		</li>
+        	</ul>	          
+				</li>
+			</ul>
+		</li>
+<!---- Sub Menu Laporan-Manajemen -->
+    <li ng-class="{active:$state.includes('gl')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-edit text-lt"></i>
+        <span class="font-normal">Manajemen</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.mnj_rasio">Rasio Keuangan</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.mnj_perkembangan">perkembangan Usaha</a>
+        </li>
+        <li ui-sref-active="active">
+        	<a ui-sref="laporan.mnj_target">Target Pencapaian</a>
+        </li>
+      </ul>
+		</li>
+  </ul>
+</nav>

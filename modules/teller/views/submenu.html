@@ -1,0 +1,65 @@
+<nav ui-nav>
+  <ul class="nav">
+    <li class="nav-header h4 m-v-sm">
+      Pages
+    </li>
+<!-- Submenu Transaksi Teller -->    
+    <li ng-class="{active:$state.includes('teller')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i> 
+        </span>	
+        <i class="icon glyphicon glyphicon-list text-lt"></i>
+        <span class="font-normal">Trx Teller</span>
+      </a>
+      <ul class="nav nav-sub bg">
+      	<li ui-sref-active="active">
+          <a ui-sref="teller.trxteller1">Transaksi ke-1</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="teller.trxteller2">Transaksi ke-2</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="teller.trxteller3">Transaksi ke-3</a>
+        </li>
+        
+		</li>
+    
+    <li ui-sref-active="active">
+      <a ui-sref="teller.reversetrx">
+        <span>Reverse Transaksi</span>
+      </a>
+    </li>
+
+    <li ui-sref-active="active">
+      <a ui-sref="teller.cetakbuku">
+        <span>Cetak Buku</span>
+      </a>
+    </li>
+    
+    <li ui-sref-active="active">
+      <a ui-sref="teller.cetakvalidasi">
+        <span>Cetak Validasi</span>
+      </a>
+    </li>
+
+    <li ui-sref-active="active">
+      <a ui-sref="teller.cetakid">
+        <span>Cetak ID-Buku</span>
+      </a>
+    </li>
+
+    <li ui-sref-active="active">
+      <a ui-sref="teller.jurnaltrx">
+        <span>Jurnal Transaksi</span>
+      </a>
+    </li>
+
+    <li ui-sref-active="active">
+      <a ui-sref="teller.cashcount">
+        <span>CashCount</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>

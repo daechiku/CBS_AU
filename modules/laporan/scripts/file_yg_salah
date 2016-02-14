@@ -1,0 +1,311 @@
+<!-- Date: 2016-01-21 Submenu copy dari aside.nav.uikit.html -->
+<!-- submenu untuk modul laporan -->
+<nav ui-nav>
+  <ul class="nav">
+    <li class="nav-header h4 m-v-sm">
+      Laporan
+    </li>
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-briefcase text-lt"></i>
+        <span class="font-normal">Transaksi</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_pembukaanproduk">Pembukaan Produk</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_laporantrx">Laporan Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="laporan.trx_rekaptrx">Rekapitulasi Transaksi</a>
+        </li>
+			<li ui-sref-active="active">
+         	<a ui-sref="ui.component.icon">Icon</a>
+        	</li>
+      </ul>
+    </li>
+    
+    <li ng-class="{active:$state.includes('laporan')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-list text-lt"></i>
+        <span class="font-normal">Tabungan</span>
+      </a>
+      <ul class="nav nav-sub bg">
+      	<li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_bermutasi">Tabungan Bermutasi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_sejarahtrx">Sejarah Transaksi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_listsaldo">List Saldo</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_saldoharian">Saldo Harian</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_saldoperproduk">Saldo Per Produk</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_pasif">Tabungan Pasif</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_blokir">Tabungan Blokir</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_premiasuransi">Premi Asuransi</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="tabungan.tab_rekaptabungan">Rekapitulasi Tabungan</a>
+        </li>
+      </ul>
+    </li>
+	
+    <li ng-class="{active:$state.includes('deposito')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-edit text-lt"></i>
+        <span class="font-normal">Deposito</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+        <a ui-sref="deposito.dep_listdeposito">List Deposito</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="deposito.dep_listbaghas">List BagiHasil</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="deposito.dep_buka">Deposito Buka</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="deposito.dep_jtempo">Deposito Jt.Tempo</a>
+        </li>
+        <li ui-sref-active="active">
+        <a ui-sref="deposito.dep_rekap">Rekap Deposito</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="deposito.dep_maturity">Maturity Profile</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="deposito.dep_terbesar">Deposito Terbesar</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-class="{active:$state.includes('ui.table')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-list text-lt"></i>
+        <span class="font-normal">Pembiayaan</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.static">Static table</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.smart">Smart table</a>
+        </li>
+      </ul>
+    </li>
+	
+	
+	<li ng-class="{active:$state.includes('ui.table')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-list text-lt"></i>
+        <span class="font-normal">General Ledger</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.static">Static table</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.smart">Smart table</a>
+        </li>
+      </ul>
+    </li>
+	
+	<li ng-class="{active:$state.includes('ui.table')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-stats text-lt"></i>
+        <span class="font-normal">Grafik Perkembangan</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.static">Static table</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.table.smart">Smart table</a>
+        </li>
+      </ul>
+    </li>
+	
+	<!--
+	
+    <li ui-sref-active="active">
+      <a ui-sref="ui.chart">
+        <b class="label bg-primary pull-right">NEW</b>    
+        <i class="icon glyphicon glyphicon-stats text-lt"></i>
+        <span class="font-normal">Charts</span>
+      </a>
+    </li>
+    <li ng-class="{active:$state.includes('ui.map')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-map-marker text-lt"></i>
+        <span class="font-normal">Maps</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="ui.map.google">Google Map</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.map.vector">Vector Map</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-random text-lt"></i>
+        <span>Nav levels</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li><a href>Nav levels 1</a></li>
+        <li>
+          <a href>
+            <span class="pull-right text-muted">
+              <i class="fa fa-caret-down"></i>
+            </span>
+            <span class="font-normal">Nav levels 2</span>
+          </a>
+          <ul class="nav nav-sub bg">
+            <li>
+              <a href>Nav levels 2.1</a>
+            </li>
+            <li>
+              <a href>Nav levels 2.2</a>
+            </li>
+          </ul>          
+        </li>        
+      </ul>
+    </li>
+	-->
+	
+  </ul>
+</nav>
+//-------------- eof sub menu ============
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name app.config:uiRouter
+ * @description
+ * # Config
+ * Config for the pages router
+ * config.router.laporan.js
+ */
+angular.module('app')
+  .config(
+    [          '$stateProvider', '$urlRouterProvider',
+      function ( $stateProvider,   $urlRouterProvider ) {
+        $stateProvider
+          .state('laporan', {
+            url: '/laporan',
+            views: {
+              // So this one is targeting the unnamed view within the parent state's template.
+              '': {
+                templateUrl: 'views/layout.html'
+              },
+              // This shows off how you could populate *any* view within *any* ancestor state.
+              // Oopulating the ui-view="aside@"
+              'aside': {
+                //templateUrl: 'modules/laporan/views/submenu.html'
+              }
+            }
+          })
+          //Copy dari sini
+          .state('laporan.main', {
+            url: '/main',
+            templateUrl: 'modules/laporan/views/main.html'
+          })
+          //Akhir Copy
+          
+          .state('laporan.trx_pembukaanproduk', {
+            url: '/trx_pembukaanproduk',
+            templateUrl: 'modules/laporan/views/trx_pembukaanproduk.html'
+          })
+          
+          .state('laporan.trx_laporantrx', {
+            url: '/trx_laporantrx',
+            templateUrl: 'modules/laporan/views/trx_laporantrx.html'
+          })
+          
+          .state('laporan.trx_rekaptrx', {
+            url: '/trx_rekaptrx',
+            templateUrl: 'modules/laporan/views/trx_rekaptrx.html'
+          })
+          
+		//SubMenu Laporan - Tabungan
+          .state('laporan.tab_bermutasi', {
+            url: '/tab_bermutasi',
+            templateUrl: 'modules/laporan/views/tab_bermutasi.html'
+          })
+   
+          .state('laporan.tab_sejarahtrx', {
+            url: '/tab_sejarahtrx',
+            templateUrl: 'modules/laporan/views/tab_sejarahtrx.html'
+          })
+          .state('laporan.tab_listsaldo', {
+            url: '/tab_listsaldo',
+            templateUrl: 'modules/laporan/views/tab_listsaldo.html'
+          })
+          .state('laporan.tab_saldoharian', {
+            url: '/tab_saldoharian',
+            templateUrl: 'modules/laporan/views/tab_saldoharian.html'
+          })
+          .state('laporan.tab_saldoperproduk', {
+            url: '/tab_saldoperproduk',
+            templateUrl: 'modules/laporan/views/tab_saldoperproduk.html'
+          })
+          .state('laporan.tab_pasif', {
+            url: '/tab_pasif',
+            templateUrl: 'modules/laporan/views/tab_pasif.html'
+          })
+          .state('laporan.tab_blokir', {
+            url: '/tab_blokir',
+            templateUrl: 'modules/laporan/views/tab_blokir.html'
+          })
+          .state('laporan.tab_premiasuransi', {
+            url: '/tab_premiasuransi',
+            templateUrl: 'modules/laporan/views/tab_premiasuransi.html'
+          })
+          .state('laporan.tab_rekaptabungan', {
+            url: '/tab_rekaptabungan',
+            templateUrl: 'modules/laporan/views/tab_rekaptabungan.html'
+          })
+     }
+    ]
+  );
+  
+  // eof router.laporan.js

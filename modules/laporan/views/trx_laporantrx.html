@@ -1,0 +1,261 @@
+<div class="row">	
+
+	<div class="col-sm-12">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading bg-white">
+
+	          <h4>Laporan Transaksi</h4> 
+
+	        </div>
+
+			<div class="panel-body">
+
+				<div class="row">
+
+					<div class="col-md-4">
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<label class="radio-inline">
+
+				          			<input type="radio" value="3" ng-model="vm.s.ststrn"> Transaksi Pending
+
+						        </label>
+
+						        <label class="radio-inline">
+
+						          <input type="radio" checked="" ng-model="vm.s.ststrn" value="1" ng-checked="vm.s.ststrn==1"> Transaksi Sukses 
+
+						        </label>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<label class="radio-inline">
+
+						          <input type="radio" value="4" ng-model="vm.s.ststrn"> Transaksi Reverse
+
+						        </label>	
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+						     <div class="col-md-12">
+
+						     	<label class="radio-inline">
+
+						          <input type="radio" value="2" ng-model="vm.s.ststrn" > Transaksi Reverse Belum Di-Otorisasi
+
+						        </label>
+
+						     </div>
+
+						 </div>
+
+					</div>
+
+					<div class="col-md-4">
+
+						<div class="row">
+
+							<div class="col-sm-4">
+
+								<div class="input-group m-b">
+
+						          <span class="input-group-addon">Batch</span>
+
+						          <input type="text" placeholder="Username" class="form-control" ng-model="vm.s.batch">
+
+						        </div>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-md=12">
+
+								<label class="checkbox-inline">
+
+						          <input type="checkbox" ng-model="batchall" id="batchall"> Semua Batch User
+
+						        </label>
+
+						        <label class="checkbox-inline">
+
+						          <input type="checkbox" ng-model="singleentri" id="singleentri"> Hanya Single Entry
+
+						        </label>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-4">
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<button class="btn btn-default" ng-click="doSearch2()">Tampil</button>
+
+								<button class="btn btn-default" type="submit">Zoom</button>
+
+								<button class="btn btn-default" type="submit">Print</button>
+
+								<button class="btn btn-default" type="submit">Tutup</button>
+
+								<button class="btn btn-default" type="submit">Save As</button>
+
+								<button class="btn btn-default" type="submit">Filter</button>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			<!--	
+
+				<br />
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<form class="form-horizontal">
+
+							<div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+
+					    	<div class="col-sm-3">
+
+					      	<div class="input-group input-sm no-padding">
+
+					        	<span class="input-group-btn">
+
+					          	<p class="btn btn-default disabled b-success">Tanggal</p>
+
+					          </span>
+
+					          <input type="text" class="form-control input-xs" ng-model="selectedDateAsNumber" data-date-format="yyyy-MM-dd" data-date-type="number"  data-autoclose="true"  data-min-date="02/10/86" data-max-date="today" data-autoclose="1" name="date2" bs-datepicker>
+
+					        </div>
+
+					        
+
+					      </div>
+
+					    <div class="col-sm-3 no-padding">
+
+					    	<input type="text" class="form-control input-xs" ng-model="globalFilter" placeholder="Cari data" />
+
+					    </div>
+
+					  	</div>
+
+					 </form>
+
+					</div>
+
+				</div>
+
+			-->
+
+			</div>
+
+			<div class="panel-body">								                                 
+
+				  <div class="table-responsive b-a">
+
+				  	<table class="table table-striped bg-white header-fixed">
+
+				    	<thead>
+
+					      	<tr>
+
+					        	<th style="width:5%"><a ng-click="vm.setSort('id')">No.</a></th>
+
+					        	<th style="width:5%"><a ng-click="vm.setSort('id')">Kdtrn.</a></th>
+
+					          <th style="width:5%">NoTrn</th>
+
+					         	<th style="width:35%">Keterangan Transaksi</th>
+
+					          <th style="width:10%">Nominal Rp.</th>
+
+					          <th style="width:10%">Rek.Debet</th>
+
+					          <th style="width:10%">Rek.Kredit</th>
+
+					          <th style="width:10%">Dokumen</th>
+
+					          <th style="width:5%">Batch</th>
+
+					          <th style="width:5%">UserInp</th>
+
+					        </tr>
+
+				      	</thead>
+
+				      	<tbody id="contentArea">
+
+					        <tr ng-repeat="data in allDatas | filter:globalFilter" ng-dblclick="detiltrn(data)">
+
+					          <td style="width:5%">{{$index+1}} </td>
+
+					          <td style="width:5%">{{data.kdtrn}} </td>
+
+					          <td style="width:5%">{{data.notrn}} </td>
+
+					          <td style="width:35%">{{data.ket}} </td>
+
+					          <td style="width:10%" class="nominal" >{{data.nominal | number}} </td>
+
+					          <td style="width:10%">{{data.debet}} </td>
+
+					          <td style="width:10%">{{data.kredit}} </td>
+
+					          <td style="width:10%">{{data.dok}}  </td>
+
+					          <td style="width:5%">{{data.batch}} </td>
+
+					          <td style="width:5%">{{data.inpuser}} </td>
+
+					        </tr>
+
+					    </tbody>
+
+				    </table>
+
+				  </div>
+
+				  <div class="w-full text-right bg-white b-a p-sm">
+
+				    {{vm.datas.numrows}} data 
+
+				  </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

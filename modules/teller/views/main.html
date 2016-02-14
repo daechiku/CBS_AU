@@ -1,0 +1,99 @@
+<div class="row">
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading bg-white">
+          <h4>Transaksi Main Teller</h4> 
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-full m-b">Denominasi</button>
+                    
+                    <div class="btn-group-vertical m-b w-full">
+                        <button type="button" class="btn btn-stroke btn-dark">Cek Ulang Transaksi..</button>
+                        <button type="button" class="btn btn-stroke btn-dark">Jurnal Transaksi</button>
+                        <button type="button" class="btn btn-stroke btn-dark">Reverse Transaksi</button>
+                        <button type="button" class="btn btn-stroke btn-dark">Cek Validasi Transaksi</button>
+                        <button type="button" class="btn btn-stroke btn-dark">Cek ID Nasabah</button>
+                        <button type="button" class="btn btn-stroke btn-dark">Cek Mutasi Pending</button>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <div class="col-sm-3">
+                            <div class="input-group input-sm no-padding">
+                              <span class="input-group-btn">
+                                <p class="btn btn-default disabled b-success">Kode Trx</p>
+                              </span>
+                              <input type="text" class="form-control input-xs" ng-model="f.kdtrnx" my-enter="showFormOnEnter(f.kdtrnx)" id="kdtrn">
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control input-xs" ng-model="globalFilter" placeholder="nama_transaksi" />
+                          </div>
+                        </div>
+                    </form>
+                                 
+                    <div class="table-responsive b-a">
+                    	<data ng-init="kol1=10"/>
+						<data ng-init="kol2=45"/>
+						<data ng-init="kol3=5"/>
+						<data ng-init="kol4=5"/>
+						<data ng-init="kol5=5"/>
+	                    <table class="table table-striped bg-white header-fixed no-margin">
+	                      <thead>                      	
+							<tr>
+								<th style="width: {{kol1}}%;">KdTrans</th>							
+	                          	<th style="width: {{kol2}}%;">Keterangan Transaksi</th>
+	                          	<th style="width: {{kol3}}%;">Buku</th>
+	                          	<th style="width: {{kol4}}%;">Validasi</th>
+	                          	<th style="width: {{kol5}}%;">Valuta</th>
+                              <th style="width: {{kol5}}%;">jnstrn</th>
+	                        </tr>
+	                      </thead>
+	                      <tbody>
+	                        <tr ng-repeat="data in vm.datas.data | filter:globalFilter">
+	                          <td style="width: {{kol1}}%;">{{data.kdtrn}} </td>
+	                          <td style="width: {{kol2}}%;" ng-dblclick="showFormOnDbClick(data)">{{data.namatrn}} </td>
+	                          <td style="width: {{kol3}}%;">{{data.ctkbuku}} </td>
+	                          <td style="width: {{kol4}}%;">{{data.ctkval}} </td>
+	                          <td style="width: {{kol5}}%;">{{data.ctkterm}} </td>
+                            <td style="width: {{kol5}}%;">{{data.jnstrn}} </td>
+	                        </tr>
+	                      </tbody>
+	                    </table>
+                  </div>
+                  <div class="w-full text-right bg-white b-a p-sm">
+                    {{vm.datas.numrows}} data 
+                  </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+   </div>
+   </div>
+   
+   <script type="text/ng-template" id="kdtrntdkada">
+	
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+      	<form class="form-horizontal ng-pristine ng-valid" method="post" action="" ng-submit="createOrUpdateProcess()">
+        <div class="modal-content">
+          <div class="modal-header" ng-show="title">
+            <button type="button" class="close" ng-click="$hide()">&times;</button>
+            <h4 class="modal-title" ng-bind-html="title"></h4>
+          </div>
+          <div class="modal-body">
+          		Kode Produk {{f.kdtrnx}} Tidak ada/aktif.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="$hide()">Tutup</button>
+          </div>
+        </div>
+         </form>
+      </div>
+    </div>
+   
+  </script>	

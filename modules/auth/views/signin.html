@@ -1,0 +1,25 @@
+<div class="container">  
+  <div class="center-block w-xl w-auto-xs m-b-lg">
+    <div class="text-2x m-v-lg text-primary"><i class="glyphicon glyphicon-th-large text-xl"></i> {{app.name}}</div>
+    <div class="m-b text-sm">
+      Sign in with your {{app.name}} Account
+    </div>
+    <form name="form" ng-submit="doLogIn()">
+      <div class="form-group m-b-xs">
+        <label class="hides">Terminal :</label>
+        <input type="text" placeholder="Terminal" class="form-control" ng-model="user.terminal" required readonly="">
+      </div>
+      <div class="form-group m-b-xs" ng-if='user.terminal'>
+        <label class="hides">User :</label>
+        <input type="text" placeholder="Username" class="form-control" ng-model="user.username" required>
+      </div>
+      <div class="form-group m-b-xs" ng-if='user.terminal'>
+        <label class="hides">Password :</label>
+        <input type="password" placeholder="Password" class="form-control" ng-model="user.password" required>
+      </div>      
+      <button type="submit" class="btn btn-info p-h-md m-v-lg">Sign in</button>
+      <p class="text-xs"><a ui-sref="forgot-password">Butuh bantuan?, klik disini untuk kirim pesan ke admin</a></p>
+    </form>
+  </div>
+</div>
+<div class="app-footer" ng-include="'views/footer.html'"></div>

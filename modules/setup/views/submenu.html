@@ -1,0 +1,93 @@
+<!-- Date: 2016-01-21 Submenu copy dari aside.nav.uikit.html -->
+<!-- submenu SETUP -->
+<nav ui-nav>
+	<ul class="nav">
+		<li class="nav-header h4 m-v-sm">
+      		Setup
+    	</li>
+    	
+    	<!--- Setup Umum -------------------- -->
+    	<li ng-class="{active:$state.includes('setup')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-cog text-lt"></i>
+        		<span class="font-normal">Umum</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+        		<li ui-sref-active="active">
+          		<a ui-sref="setup.kantor">Kantor</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="setup.terminal">Terminal PC</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="setup.pengguna">Pengguna</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="setup.sandiref">Sandi/Referensi</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="setup.gl">General Ledger</a>
+       	 	</li>       	 	
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="setup.transaksi">Transaksi</a>
+       	 	</li>
+      	</ul>
+      </li>
+      
+      <!--- Setup Produk ---------------------- -->
+      <li ng-class="{active:$state.includes('setup')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon  fa-gears text-lt"></i>
+        		<span class="font-normal">Produk</span>
+      	</a>
+      	<ul class="nav nav-sub bg" 
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.sp_tabungan">Tabungan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.sp_deposito">Deposito</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.sp_pyd">Pembiayaan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.koll">Kolektibilitas</a>
+      		</li>
+      		 
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.formatprint">Format Print</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.validasi">Validasi</a>
+      		</li>
+      		
+      	</ul>
+      </li>
+      
+      <!--- Setup Nisbah ---------------------- -->
+      <li ng-class="{active:$state.includes('setup')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-briefcase text-lt"></i>
+        		<span class="font-normal">Nisbah</span>
+      	</a>
+      	<ul class="nav nav-sub bg" 
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.nisbah_tab">Tabungan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="setup.nisbah_dep">Deposito</a>
+      		</li>
+      	</ul>
+      </li>
+      
+  </ul>
+</nav>

@@ -1,0 +1,230 @@
+	<div class="p-v-sm p-h bg-white box-shadow pos-rlt clearfix">
+		<a class="btn btn-link text-lg pull-left visible-xs" ng-init="toggle=false" ng-click="toggle=!toggle" ng-class="{'active':toggle}"><i class="fa fa-fw" ng-class="{'fa-close':toggle, 'fa-bars':!toggle}"></i></a>
+		<h3 class="no-margin pull-left">{{title}}</h3>
+		<div class="m-l-lg pull-left">
+			<ul class="nav nav-sm nav-pills">
+				<li><button class="btn btn-primary btn-sm" ng-click="showModal()">Tambah</button></li>
+			</ul>
+		</div>
+		<div class="pull-right">
+			<ul class="nav nav-sm nav-pills pg">
+				<li>
+					<div data-trigger="hover" data-placement="bottom" data-title="Advanced Search" bs-tooltip>
+	        		  <button  ng-click="showAdvancedSearch()" placement="bottom" title="Advanced Search" class="btn btn-sm btn-danger" type="button"><i class="fa fa-gears"></i></button>
+	    		    </div>
+				</li>
+				<li><a class="m-r-xs p-h-0 bg-0">Show Rows:</a></li>
+				<li>
+					<select class="form-control input-sm" name="changesize" ng-model="limit" ng-change="setLimit(limit)">
+	                    <option ng-repeat="val in [5,10, 25,50,100,250]" value="{{val}}" ng-selected="val==limit">{{val}}</option>
+	                </select>
+				</li>
+				<li><a href class="m-l-sm p-h-0 bg-0">  {{startRow | number}} - {{endRow | number}} of {{numrows | number}}</a> </li>
+				<li>
+                	<a href="javascript:;" ng-click="pageNav('prev')"><i class="ti-angle-left"></i></a>
+	            </li>
+	            <li>
+	                <form ng-submit="jumpToPage(currentPage)">
+	                    <input style="width: 50px !important;" type="number" class="form-control input-sm text-center" ng-model="currentPage" />
+	                    <input type="submit" class="hide" />
+	                </form>
+	            </li>
+	            <li>
+	                <a href="javascript:;" ng-click="pageNav('next')"><i class="ti-angle-right"></i></a>
+	            </li>
+			</ul>
+		</div>
+	</div>
+<!--div class="p-md">
+	<div class="row">
+		<div class="col-md-12"-->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<data ng-init="kol1=6"/>
+					<data ng-init="kol2=15"/>
+					<data ng-init="kol3=25"/>
+					<data ng-init="kol4=10"/>
+					<data ng-init="kol5=4"/>
+					<data ng-init="kol6=5"/>
+					<table class="table table-striped header-fixed">
+                        <thead>
+						<tr>
+							<th style="width: {{kol1}}%;"><a href ng-click="setSort('nocif')">CIF</a></th>
+							<th style="width: {{kol2}}%;"><a href ng-click="setSort('nama')">Nama</a></th>
+							<th style="width: {{kol3}}%;"><a href ng-click="setSort('alamat')">Alamat</a></th>
+							<th style="width: {{kol4}}%;"><a href ng-click="setSort('alamat')">Kelurahan</a></th>
+							<th style="width: {{kol4}}%;"><a href ng-click="setSort('alamat')">Kecamatan</a></th>
+							<th style="width: {{kol4}}%;"><a href ng-click="setSort('alamat')">Kota</a></th>
+							<th style="width: {{kol5}}%;"><a href ng-click="setSort('sex')">L/P</a></th>
+							<th style="width: {{kol4}}%;"><a href ng-click="setSort('tglbuka')" >TglBuka</a></th>
+							<th style="width: {{kol6}}%;"><a href ng-click="setSort('stsrec')" >Sts</a></th>
+							<th style="width: {{kol6}}%;"></th>
+						</tr>
+                        </thead>
+                        <tbody id="contentArea">
+						<tr ng-repeat="row in datas">
+							<td style="width: {{lbrCol.cw6}}%;">{{row.nocif}}</td>
+							<td style="width: {{lbrCol.cw15}}%;">{{row.nama}}</td>
+							<td style="width: {{lbrCol.cw25}}%;">{{row.alamat}}</td>
+							<td style="width: {{lbrCol.cw10}}%;">{{row.kel}}</td>
+							<td style="width: {{lbrCol.cw10}}%;">{{row.kec}}</td>
+							<td style="width: {{lbrCol.cw10}}%;">{{row.kota}}</td>
+							<td style="width: {{lbrCol.cw5}}%;">{{row.sex}}</td>
+							<td style="width: {{lbrCol.cw10}}%;">{{row.tglbuka}}</td>
+							<td style="width: {{lbrCol.cw5}}%;">{{row.stsrec}}</td>
+							<td style="width: {{lbrCol.cw4}}%;">
+								<div class="btn-group">           
+					             <a  data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-cog text-lg"></i></a>
+					              <ul class="dropdown-menu pull-right">
+					               		<li> <a  ng-click="delete('newguru', row.id_guru,$index)">Delete</a></li>
+					               		<li> <a >Edit</a></li>
+					              </ul>
+					            </div>
+							</td>
+						</tr>
+                        </tbody>
+					</table>
+				</div>
+			</div>
+		<!--/div>
+	</div>
+</div-->
+
+<script type="text/ng-template" id="form-data-user">
+	
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+      	<form class="form-horizontal ng-pristine ng-valid" method="post" action="" ng-submit="createOrUpdateProcess()">
+        <div class="modal-content">
+          <div class="modal-header" ng-show="title">
+            <button type="button" class="close" ng-click="$hide()">&times;</button>
+            <h4 class="modal-title" ng-bind-html="title"></h4>
+          </div>
+          <div class="modal-body">
+          
+          	<div class="form-group">
+		      <label for="input-id-1" class="col-sm-2 control-label">Nama</label>
+		      <div class="col-sm-9">
+		        <input type="text" id="input-id-1" class="form-control" ng-model="f.nama"  required="">
+		      </div>
+		    </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Alamat</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" rows="1" id="alamat" ng-model="f.alamat"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Provinsi</label>
+              <div class="col-sm-9">
+                <select ng-model="f.prov" class="form-control" ng-change="getOption('mkab', f.prov)">
+                    <option ng-repeat="prov in listProv|orderBy:'Nama'" value="{{prov.Nama}}">{{prov.Nama}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Kota/kab</label>
+              <div class="col-sm-9">
+                <select ng-model="f.kota" class="form-control" ng-change="getOption('mkec', f.kota)" ng-disabled="!f.prov">
+                    <option ng-repeat="kab in listKab[f.prov]|orderBy:'Nama'" value="{{kab.Nama}}">{{kab.Nama}}</option>
+                </select>
+              </div>
+              <div class="col-sm-1 no-padding" ng-if="loadKab">Loading...</div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Kecamatan</label>
+              <div class="col-sm-9">
+                <select ng-model="f.kec" class="form-control" ng-change="getOption('mkel', f.kec)" ng-disabled="!f.kota">
+                    <option ng-repeat="kec in listKec[f.kota]|orderBy:'Nama'" value="{{kec.Nama}}">{{kec.Nama}}</option>
+                </select>
+                <!--input type="text" id="input-id-1" class="form-control" ng-model="f.kecamatan"  required=""-->
+              </div>
+              <div class="col-sm-1 no-padding" ng-if="loadKec">Loading...</div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Kelurahan</label>
+              <div class="col-sm-9">
+                <select ng-model="f.kel" class="form-control" ng-disabled="!f.kec">
+                    <option ng-repeat="kel in listKel[f.kec]|orderBy:'Nama'" value="{{kel.Nama}}">{{kel.Nama}}</option>
+                </select>
+                <!--input type="text" id="input-id-1" class="form-control" ng-model="f.kelurahan"  required=""-->
+              </div>
+              <div class="col-sm-1 no-padding" ng-if="loadKel">Loading...</div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Jenis Kelamin</label>
+              <div class="col-sm-10">
+                <label class="radio-inline">
+                  <input type="radio" value="L" ng-model="f.sex"> Laki-laki
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" value="P" ng-model="f.sex"> Perempuan
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+		      <label for="input-id-1" class="col-sm-2 control-label">Tanggal Lahir</label>
+		      <div class="col-sm-4">
+		        <input type="text" id="input-id-1" class="form-control" ng-model="f.tgllhr"  required=""
+		        placeholder="yyyy/MM/dd"
+		        ui-mask="9999/99/99" 
+		        model-view-value="true"
+                data-date-format="yyyy/MM/dd"  
+                data-autoclose="true"  
+                data-min-date="02/10/50" 
+                data-max-date="today" 
+                data-autoclose="1" name="date2" bs-datepicker
+                >
+		      </div>
+		    </div>
+            
+		   
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+  			<button type="submit" class="btn btn-primary" ><span ng-if="f.uid">UPDATE</span> <span ng-if="!f.uid">CREATE</span></button>
+          </div>
+        </div>
+         </form>
+      </div>
+    </div>
+   
+  </script>
+  
+<script type="text/ng-template" id="form-advanced-search">
+	
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+      	<form class="form-horizontal ng-pristine ng-valid" method="post" action="" ng-submit="doSearch()">
+        <div class="modal-content">
+          <div class="modal-header" ng-show="title">
+            <button type="button" class="close" ng-click="$hide()">&times;</button>
+            <h4 class="modal-title" ng-bind-html="title"></h4>
+          </div>
+          <div class="modal-body">
+          	<div class="form-group">
+		      <label for="input-id-1" class="col-sm-2 control-label">CIF</label>
+		      <div class="col-sm-10">
+		       	<input type="text" id="input-id-1" class="form-control" ng-model="x.nocif">
+		      </div>
+		    </div> 
+          	<div class="form-group">
+		      <label for="input-id-1" class="col-sm-2 control-label">Nama</label>
+		      <div class="col-sm-10">
+		       	<input type="text" id="input-id-1" class="form-control" ng-model="x.nama">
+		      </div>
+		    </div> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+  			<button type="submit" class="btn btn-primary" >SEARCH</button>
+          </div>
+        </div>
+         </form>
+      </div>
+    </div>
+   
+  </script>

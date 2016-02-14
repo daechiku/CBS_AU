@@ -1,0 +1,146 @@
+<!--
+trx-1 Tarik/Setor
+trx-2 Rekening Default (hanya Entri Nominal&Keterangan)
+trx-3 OverBooking/Pindah Buku/Transfer : Ada Rekening Asal dan Rekening Tujuan
+-->	
+	<div class="modal" tabindex="-1" role="dialog">
+      	<div class="modal-dialog modal-lg"><div class="modal-content">
+          	<div class="modal-header" ng-show="title">
+            	<button type="button" class="close" ng-click="$hide()">&times;</button>
+            	<!--<h4 class="modal-title" ng-bind-html="title"></h4>-->
+            	<h4 class="modal-title" ng-bind-html="judul"></h4>
+          	</div>
+
+          	<div class="modal-body">       
+	          	<form class="form-horizontal ng-pristine ng-valid form-validation" role="form">
+	            	<div class="form-group">
+	              		<label for="inputEmail3" class="col-sm-3 control-label">Kode Transaksi</label>  	           	
+  	           			<div class="col-sm-2">
+	            			<input type="text" readonly="" class="form-control" ng-model="f.kdtrn" required> 
+	            		</div>
+	            	</div>            
+
+	            	<div class="form-group">
+	            		<label class="col-sm-3 control-label">Nama Transaksi</label>
+	            		<div class="col-sm-8">
+	            			<input type="text" readonly="readonly" class="form-control" ng-model="f.namatrn" required>
+	            		</div>
+	            	</div>
+	            	<div class="form-group" ng-if="teller==1 || teller==3"> 
+	            		<label class="col-sm-3 control-label" ng-if="teller==1">No.Rekening</label>
+	            		<label class="col-sm-3 control-label" ng-if="teller==3">Rekening Asal</label>
+	            		<div class="col-sm-8">
+	            			<div class="row">
+	            				<div class="col-sm-3 norekening">
+	            					<input type="text" class="form-control" placeholder="" ng-model="f.norek" ng-minlength="10" ng-maxlength="10"
+	            					  id="norek" ng-change="getNamaNasabah(f.norek,'f.noreknama','datanorek')"
+	            					  required>
+	            				</div>
+	            				<div class="col-sm-6">
+	            					<input type="text" 
+			            				class="form-control" 
+			            				placeholder="" 
+			            				ng-model="f.noreknama"
+			            				readonly=""
+			            				ng-class = "{invalidErr : pesanErrNo == 4 || pesanErrNo == 5}"  
+			            			>
+	            				</div>
+	            			</div>
+	            		</div>	
+	            	</div>  
+
+	           
+
+	            	<div class="form-group" ng-if="teller==3">
+	            		<label class="col-sm-3 control-label">Rekening Tujuan</label>
+	            		<div class="col-sm-8">
+	            			<div class="row">
+	            				<div class="col-sm-3 norekening">
+	            					<input type="text" 
+	            						ng-change="getNamaNasabah(f.reklawan,'f.reklawannama','datanoreklawan')"
+			            				class="form-control" 
+			            				placeholder="" 
+			            				ng-model="f.reklawan" 
+			            				ng-minlength="10"
+			            				ng-maxlength="10"
+			            				required>
+	            				</div>
+	            				<div class="col-sm-6">
+	            					<input type="text"
+				            			class="form-control" 
+				            			placeholder="" 
+				            			ng-model="f.reklawannama"
+				            			readonly=""  
+				            			>
+	            				</div>
+	            			</div>
+	            		</div>	
+	            	</div> 
+	           
+	            	<div class="form-group" ng-if="pesanErr != 1 ">
+	            		<label class="col-sm-3 control-label"></label>
+	            		<div class="col-sm-8">
+	            			<span ng-bind-html="pesanErr"></span>           
+	            		</div>
+	            	</div>
+		            <div class="form-group">
+		            	<label class="col-sm-3 control-label">Nominal</label>
+		            	<div class="col-sm-8">
+		            		<input type="text"
+		            			field="f.nominal"  currency-input
+		            			class="form-control nominal"
+		            			ng-model="f.nominal" 
+		            			ng-maxlength="15"
+		            			ng-change="prosesOff()"
+		            			ng-class = "{invalidErr : pesanErrNo == 2}"
+		            			required>
+		            	</div>
+		            </div>  
+
+	           
+
+	             	<div class="form-group">
+		            	<label class="col-sm-3 control-label">Keterangan</label>
+		            	<div class="col-sm-8">
+		            		<input type="text"
+		            			class="form-control" 
+		            			placeholder="" 
+		            			ng-model="f.ket"
+		            			ng-maxlength="50"
+		            			
+		            			>
+	            		</div>
+	            	</div>  
+
+		            <div class="form-group">
+		            	<label class="col-sm-3 control-label">No.Trn</label>
+		            	<div class="col-sm-2">
+		            		<input type="text" class="form-control" ng-model="f.notrn" readonly="readonly">
+		            	</div>
+		            	<label class="col-sm-2 control-label">Baris Buku</label>
+		            	<div class="col-sm-2">
+		            		<input type="text" class="form-control" ng-model="datanorek.brsbuku" readonly="readonly">
+		            	</div>
+		            </div> 
+
+	             
+
+	            <div class="form-group">
+	              <div class="col-sm-7 control-label">	              	
+	                <button ng-click="konfirmasi()" ng-if="datanorek" class="btn btn-default" name="konfirmasi" style="width: 100px; border-style: solid; border-color: #000000;">Konfirmasi</button>	                
+	              </div>
+	              <div class="col-sm-3 control-label" ng-if="proses == 1">	              	
+	              	<button  ng-click="prosesTrx()" type="submit" class="btn btn-primary" name="proses" style="width: 100px; border-style: solid; border-color: #000000;">Proses</button>    
+	              </div>
+
+	            </div>
+
+	          </form>
+
+			</div>
+
+        </div>
+
+      </div>
+
+    </div>

@@ -1,0 +1,217 @@
+<!-- Date: 2016-01-21 Submenu copy dari aside.nav.uikit.html -->
+<!-- submenu backoffice -->
+<nav ui-nav>
+	<ul class="nav">
+		<li class="nav-header h4 m-v-sm">
+      		BackOffice
+    	</li>
+    	<li ng-class="{active:$state.includes('backoffice')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon ti-user text-lt"></i>
+        		<span class="font-normal">Nasabah</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+        	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.cif_express">CIF Express</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.cif_master">Master Nasabah</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.cif_notice">Notice Nasabah</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.cif_blokir">Blokir Nasabah</a>
+       	 	</li>       	 	
+      	</ul>
+ 		</li>
+ 		
+ 		<!-- Sub menu Tabungan -->
+ 		<li ng-class="{active:$state.includes('backoffice')}">
+     		<a>
+     			<span class="pull-right text-muted">
+     				<i class="fa fa-caret-down"></i>
+     			</span>
+        		<i class="icon glyphicon glyphicon-book text-lt"></i>
+        		<span class="font-normal">Tabungan</span>
+      	</a>
+			<ul class="nav nav-sub bg">
+        		<li ui-sref-active="active">
+          		<a ui-sref="backoffice.tab_master">Master Tabungan</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.tab_cetakid">Cetak ID Buku</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.tab_cetakmutasi">Cetak Mutasi Buku</a>
+       	 	</li>
+       	 	<li ui-sref-active="active">
+          		<a ui-sref="backoffice.tab_rektup">Penutupan Tabungan</a>
+       	 	</li>       	 	
+      	</ul>
+ 		</li>
+ 		 
+ 		<!-- Sub menu Deposito -->
+ 		<li ng-class="{active:$state.includes('backoffice')}">
+      	<a>
+        		<span class="pull-right text-muted">
+         		<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-calendar text-lt"></i>
+        		<span class="font-normal">Deposito</span>
+      	</a>
+	      	<ul class="nav nav-sub bg">
+	      		<li ui-sref-active="active">
+	      			<a ui-sref="backoffice.dep_bilyet">Bilyet Deposito</a>
+	      		</li>
+	      		<li ui-sref-active="active">
+	      			<a ui-sref="backoffice.dep_master">Master Deposito</a>
+	      		</li>
+	      		<li ui-sref-active="active">
+	      			<a ui-sref="backoffice.dep_cetakbilyet">Cetak Bilyet</a>
+	      		</li>	
+	      	</ul>
+ 		</li>
+ 		
+ 		<!-- Sub menu Jaminan -->
+ 		<li ng-class="{active:$state.includes('backoffice')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon ti-window text-lt"></i>
+        		<span class="font-normal">Jaminan</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.jam_master">Master Jaminan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.jam_tukar">Penukaran Jaminan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.jam_appraisal">Re-Appraisal</a>
+      		</li>	
+      	</ul>
+ 		</li>
+ 		
+    	<li>
+      	<a href>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-random text-lt"></i>
+        		<span>Penyaluran</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.pyd_master">Master Pembiayaan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.pyd_express">Master Express</a>
+      		</li>
+      		
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.pyd_jdwangsur">Jadwal Angsuran</a>
+      		</li>
+      		
+        		<li>
+          		<a href>
+            		<span class="pull-right text-muted">
+            			<i class="fa fa-caret-down"></i>
+            		</span>
+            		<span class="font-normal">Re-Strukturisasi</span>
+          		</a>
+          		<ul class="nav nav-sub bg">
+          			<li ui-sref-active="active"><a ui-sref="backoffice.pyd_rescheduling">Re-Scheduling1</a></li>
+            		<li><a href>Re-Scheduling</a></li>
+            		<li><a href>Re-Conditioning</a></li>
+            		<li><a href>Re-Structuring</a></li>
+					<li ui-sref-active="active">
+      					<a href>Re-Generasi</a>
+      				</li>
+            		
+          		</ul>          
+        		</li>        
+      	</ul>            
+    	</li> 	
+    		
+ 		<!-- Sub menu Transaksi Umum -->
+ 		<li ng-class="{active:$state.includes('backoffice')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-paperclip text-lt"></i>
+        		<span class="font-normal">Transaksi Umum</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_umum">Transaksi Umum</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_multi">Transaksi Multi</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_reverse">Reverse Transaksi</a>
+      		</li>	
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_oto">Otorisasi Transaksi</a>
+      		</li>	
+      			<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_upload">Upload Transaksi</a>
+      		</li>	
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_yad">Transaksi YAD</a>
+      		</li>	
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trx_backdated">Transaksi BackDated</a>
+      		</li>	
+      	
+      	</ul>
+ 		</li>
+ 		
+ 		<!-- Sub menu Transaksi Khusus -->
+ 		<li ng-class="{active:$state.includes('backoffice')}">
+      	<a>
+        		<span class="pull-right text-muted">
+          			<i class="fa fa-caret-down"></i>
+        		</span>
+        		<i class="icon glyphicon glyphicon-pushpin text-lt"></i>
+        		<span class="font-normal">Transaksi Khusus</span>
+      	</a>
+      	<ul class="nav nav-sub bg">
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trxh_bonustab">Bonus Tabungan</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trxh_aset">Transaksi Aset</a>
+      		</li>
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trxh_cairdep">Pencairan Deposito</a>
+      		</li>      		
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trxh_cairpyd">Pencairan PYD</a>
+      		</li>
+      		
+      		<li ui-sref-active="active">
+      			<a ui-sref="backoffice.trxh_angsuran">Angsuran Massal</a>
+      		</li>
+      	</ul>      	
+ 		</li>
+ 		
+ 		<!-- Sub Closing -->
+ 		<li ui-sref-active="active">
+      	<a ui-sref="backoffice.closing">
+        		<!-- <b class="label bg-primary pull-right">NEW</b> -->    
+        		<i class="icon glyphicon glyphicon-folder-close text-lt"></i>
+        		<span class="font-normal">Closing</span>
+      	</a>
+    	</li> 		
+ 	</ul>
+</nav>
+
+      		
